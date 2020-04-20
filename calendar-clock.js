@@ -1,4 +1,4 @@
-import { LitElement, html, css } from 'https://cdn.pika.dev/lit-element';
+import { LitElement, html, css } from 'lit-element';
  
 // Un componente que solo pinta sin ninguna logica
 // facil de probar
