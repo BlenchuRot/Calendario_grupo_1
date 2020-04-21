@@ -1,10 +1,10 @@
 
 import { LitElement, html } from 'https://cdn.pika.dev/lit-element';
-import { DateService } from './date-service.js';
+import { dateService } from './date-service.js';
 import { DateFormatter } from './date-formatter.js';
 
 class XCalendarDate extends LitElement {
-    static get styles() {
+    static get style() {
         return css`
           .x-date {
     margin:0;
@@ -14,8 +14,7 @@ class XCalendarDate extends LitElement {
 .x-date:hover {
     color: var(--x-color-primary--light);
     cursor: grab;
-}
-        `;
+} `;
     }
     static get properties(){
         return {
