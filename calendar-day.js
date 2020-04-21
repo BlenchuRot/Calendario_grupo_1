@@ -1,4 +1,4 @@
-import { LitElement, html } from 'lit-element';
+import { LitElement, html } from 'https://cdn.pika.dev/lit-element';
 
 class XCalendarDay extends LitElement {
     get date() {

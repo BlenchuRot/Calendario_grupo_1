@@ -1,4 +1,4 @@
-import { LitElement, html, css } from 'lit-element';
+import { LitElement, html, css } from 'https://cdn.pika.dev/lit-element';
 import { dateService } from './date-service.js';
 import { DateFormatter } from './date-formatter.js';    
  
@@ -9,27 +9,20 @@ class XCalendarClock extends LitElement {
         .x-clock {
             margin: 0;
             font-size: var(--x-font-small);
-        `}
+        }`
+}
     static get properties() {
         return {
             date: { type: Object }
         };
     }
-
-    get $text() {
-        if (!this._$text) {
-            this._$text = this.renderRoot.getElementById('text');
-        }
-        return this._$text;
-    }
-
     get timeString() {
         return DateFormatter.timeString(dateService.date);
         
     }
     constructor() {
         super();
-        this.date = new Date();
+        this.date = new dateService.date;
         
     }
     connectedCallback() {
@@ -40,12 +33,12 @@ class XCalendarClock extends LitElement {
         super.disconnectedCallback();
         dateService.off(dateService.SECOND_CHANGED, this._onSecondChanged);
     }
-    _onSecondChanged = () => {
+    _onSecondChanged = (date) => {
         this.date = date;
     }
     render() {
         return html`
-            <p class="x-clock" id="text">${this.timeString}</p>
+            <p class="x-clock">${this.timeString}</p>
         `;
     }
 }
