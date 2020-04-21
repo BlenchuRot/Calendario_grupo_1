@@ -1,4 +1,4 @@
-import { LitElement, html } from 'lit-element';
+
 import { BaseElement } from './core/base-element.js';
 import { dateService } from './date-service.js';
 import { DateFormatter } from './date-formatter.js';

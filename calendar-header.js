@@ -1,4 +1,4 @@
-import { LitElement, html } from 'lit-element';
+
 import { BaseElement } from './core/base-element.js';
 import './calendar-clock.js';
 import './calendar-date.js';
