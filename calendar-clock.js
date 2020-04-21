@@ -20,13 +20,13 @@ class XCalendarClock extends LitElement {
         if (!this._$text) {
             this._$text = this.renderRoot.getElementById('text');
         }
-        return html `this._$text
-       `}
+        return this._$text;
+    }
 
     get timeString() {
-        return html `DateFormatter.timeString(dateService.date)
+        return DateFormatter.timeString(dateService.date);
         
-       `}
+    }
     constructor() {
         super();
         this.date = new Date();
