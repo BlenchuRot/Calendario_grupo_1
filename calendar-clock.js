@@ -22,7 +22,7 @@ class XCalendarClock extends LitElement {
     }
     constructor() {
         super();
-        this.date = new dateService.date;
+        this.date = dateService.date;
         
     }
     connectedCallback() {
