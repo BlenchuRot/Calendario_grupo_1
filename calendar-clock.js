@@ -10,7 +10,7 @@ class XCalendarClock extends LitElement {
             margin: 0;
             font-size: var(--x-font-small);
         }`
-}
+    }
     static get properties() {
         return {
             date: { type: Object }
