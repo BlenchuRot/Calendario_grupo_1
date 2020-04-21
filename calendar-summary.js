@@ -23,7 +23,7 @@ class XCalendarSummary extends LitElement {
     
     render() {
         return html`
-            <span class="x-calendar-summary">${this.summary}</span>
+            <span class="x-calendar-summary">${this.monthString}</span>
         `;
     }
 }
