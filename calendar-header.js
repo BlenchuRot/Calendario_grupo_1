@@ -1,10 +1,10 @@
-import { LitElement, html} from 'lit-element';
+import { LitElement, html,css} from 'lit-element';
 import './calendar-clock.js';
 import './calendar-date.js';
 
 class XCalendarHeader extends LitElement  {
     static get styles() {
-        return ['/calendar-header.css'];
+        return css['/calendar-header.css'];
     }
     render() {
         return html`

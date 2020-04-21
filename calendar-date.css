@@ -1,0 +1,9 @@
+.x-date {
+    margin:0;
+    font-size: var(--x-font-tiny);
+    color: var(--x-color-secondary--light);
+}
+.x-date:hover {
+    color: var(--x-color-primary--light);
+    cursor: grab;
+}
