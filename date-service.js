@@ -1,4 +1,4 @@
-import { EventEmitter } from './core/event-emitter.js';
+import { EventEmitter } from './event-emitter.js';
 import { config } from './config.js';
 
 class DateService extends EventEmitter {
