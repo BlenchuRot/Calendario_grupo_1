@@ -1,14 +1,13 @@
-
-import { BaseElement } from './core/base-element.js';
+import { LitElement, html} from 'lit-element';
 import './calendar-clock.js';
 import './calendar-date.js';
 
-class XCalendarHeader extends BaseElement {
+class XCalendarHeader extends LitElement  {
     static get styles() {
         return ['/calendar-header.css'];
     }
     render() {
-        return `
+        return html`
             <x-calendar-clock></x-calendar-clock>
             <x-calendar-date class="x-header__date"></x-calendar-date>
         `
