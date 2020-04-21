@@ -1,6 +1,6 @@
 
 import { LitElement, html } from 'https://cdn.pika.dev/lit-element';
-
+import { DateService } from './date-service.js';
 import { DateFormatter } from './date-formatter.js';
 
 class XCalendarDate extends LitElement {
@@ -39,7 +39,7 @@ class XCalendarDate extends LitElement {
     }
 
     
-    _onDayChanged() {
+    _onDayChanged(date) {
         this.date = date;
     }
     render() {
