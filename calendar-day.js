@@ -1,12 +1,39 @@
 import { LitElement, html } from 'https://cdn.pika.dev/lit-element';
 
 class XCalendarDay extends LitElement {
-    get date() {
-        return new Date(this.dataset.date);
+    static get properties() {
+        return {
+            date: {type: Object}
+        };
+    }
+    get timeString() {
+        return Dateformatter.timeString(dateService.date);
+    }
+    constructor() {
+        super();
+        this.date = dateService.date;  
+    }
+    connectedCallback() {
+        super.connectedCallback();
+        dateService.on(dateService.DAY_CHANGED, this._daySecondChanged);
+    }
+    disconnectedCallback() {
+        super.disconnectedCallback();
+        dateService.off(dateService.DAY_CHANGED, this._daySecondChanged);
+    }
+    _onDayChanged = (date) => {
+        this.date = date;
     }
     render() {
-        return html`<div>${this.date.getDate()}</div>`
+        if (!DAY_CHANGED) {
+            return html`
+            <div>${this.date}</div>
+            `;
+        }
+             return html`
+             <div>${this.timeString}</div>
+             `; 
+        }  
     }
-}
 
-window.customElements.define('x-calendar-day', XCalendarDay);
+window.customElements.define(`calendar-day`, XCalendarDay);

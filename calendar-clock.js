@@ -17,13 +17,11 @@ class XCalendarClock extends LitElement {
         };
     }
     get timeString() {
-        return DateFormatter.timeString(dateService.date);
-        
+        return DateFormatter.timeString(dateService.date); 
     }
     constructor() {
         super();
-        this.date = dateService.date;
-        
+        this.date = dateService.date;  
     }
     connectedCallback() {
         super.connectedCallback();
