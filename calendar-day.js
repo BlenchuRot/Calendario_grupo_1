@@ -36,4 +36,4 @@ class XCalendarDay extends LitElement {
         }  
     }
 
-window.customElements.define(`calendar-day`, XCalendarDay);
+window.customElements.define(`x-calendar-day`, XCalendarDay);
