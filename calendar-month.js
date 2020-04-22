@@ -81,13 +81,6 @@ x-calendar-day[data-selected]{
     }
     _renderDay(day) {
 
-        /*const attrs = [];
-        if (dateService.isToday(day)) {
-            attrs.push('data-today');
-        }
-        if (day.getMonth() !== this.date.getMonth()) {
-            attrs.push('data-outside');
-        }*/
         return html`<x-calendar-day @click=${this._onClick} class="x-month__item" .date=${day}></x-calendar-day>`
     }
     _renderDays() {
