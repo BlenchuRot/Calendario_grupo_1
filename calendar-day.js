@@ -6,34 +6,11 @@ class XCalendarDay extends LitElement {
             date: {type: Object}
         };
     }
-    get timeString() {
-        return Dateformatter.timeString(dateService.date);
-    }
-    constructor() {
-        super();
-        this.date = dateService.date;  
-    }
-    connectedCallback() {
-        super.connectedCallback();
-        dateService.on(dateService.DAY_CHANGED, this._onDayChanged);
-    }
-    disconnectedCallback() {
-        super.disconnectedCallback();
-        dateService.off(dateService.DAY_CHANGED, this._onDayChanged);
-    }
-    _onDayChanged = (date) => {
-        this.date = date;
-    }
     render() {
-        if (!DAY_CHANGED) {
-            return html`
-            <div>${this.date}</div>
-            `;
+       if(!this.date){
+            return null;
         }
-             return html`
-             <div>${this.timeString}</div>
-             `; 
-        }  
+        return html`<div>${this.date.getDate()}</div>`
     }
 
 window.customElements.define(`x-calendar-day`, XCalendarDay);
