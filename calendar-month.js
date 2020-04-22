@@ -53,12 +53,7 @@ x-calendar-day[data-selected]{
       
     static get properties() {
         return {
-            date: { type: Object}
-        };
-    }
-    static get properties() {
-        return {
-            days: { type: Object}
+            date: {type: Object}
         };
      }
 
@@ -85,20 +80,21 @@ x-calendar-day[data-selected]{
         return days;
     }
     _renderDay(day) {
-        const attrs = [];
+
+        /*const attrs = [];
         if (dateService.isToday(day)) {
             attrs.push('data-today');
         }
         if (day.getMonth() !== this.date.getMonth()) {
             attrs.push('data-outside');
-        }
-        return `<x-calendar-day @click={this._onClick} class="x-month__item" ${attrs} data-date="${day.toDateString()}"></x-calendar-day>`
+        }*/
+        return html`<x-calendar-day @click=${this._onClick} class="x-month__item" .date=${day}></x-calendar-day>`
     }
     _renderDays() {
         return this.days.map((day) => this._renderDay(day));
     }
     _renderWeekdays() {
-        return this._getWeekDays().map((wd) => `<div @click={this._onClick} class="x-month__item">${wd}</div>`);
+        return this._getWeekDays().map((wd) => html`<div class="x-month__item">${wd}</div>`);
     }
     render() {
         return html `
