@@ -15,11 +15,11 @@ class XCalendarDay extends LitElement {
     }
     connectedCallback() {
         super.connectedCallback();
-        dateService.on(dateService.DAY_CHANGED, this._daySecondChanged);
+        dateService.on(dateService.DAY_CHANGED, this._onDayChanged);
     }
     disconnectedCallback() {
         super.disconnectedCallback();
-        dateService.off(dateService.DAY_CHANGED, this._daySecondChanged);
+        dateService.off(dateService.DAY_CHANGED, this._onDayChanged);
     }
     _onDayChanged = (date) => {
         this.date = date;
