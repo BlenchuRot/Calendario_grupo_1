@@ -23,7 +23,6 @@ class XCalendarMonth extends LitElement {
 x-calendar-day {
     box-sizing: border-box;
     cursor: pointer;
-    
 }
 
 x-calendar-day[data-outside]{
@@ -51,18 +50,18 @@ x-calendar-day[data-selected]{
     get days() {
         return MonthHelper.getDays(this.date, config.startDay, DAYS_PER_WEEK * config.monthRows);
     }
-   
-   
+      
     static get properties() {
         return {
-            date: { type: string}
+            date: { type: Object}
         };
     }
     static get properties() {
         return {
-            date: { type: string }
+            days: { type: Object}
         };
-    }
+     }
+
     _onClick = (ev) => {
         const newSelectedDay = this._findCalendarDay(ev.path);
         if (!newSelectedDay) {
@@ -96,16 +95,15 @@ x-calendar-day[data-selected]{
         return `<x-calendar-day @click={this._onClick} class="x-month__item" ${attrs} data-date="${day.toDateString()}"></x-calendar-day>`
     }
     _renderDays() {
-        return this.days.map((day) => this._renderDay(day))
+        return this.days.map((day) => this._renderDay(day));
     }
     _renderWeekdays() {
         return this._getWeekDays().map((wd) => `<div @click={this._onClick} class="x-month__item">${wd}</div>`);
     }
     render() {
         return html `
-           
            ${this._renderWeekdays()}
-            ${this._renderDays()}
+           ${this._renderDays()}
         `;
 
     }

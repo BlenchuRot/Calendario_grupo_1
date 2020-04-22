@@ -12,5 +12,6 @@ class XCalendarDay extends LitElement {
         }
         return html`<div>${this.date.getDate()}</div>`
     }
+}
 
 window.customElements.define(`x-calendar-day`, XCalendarDay);
