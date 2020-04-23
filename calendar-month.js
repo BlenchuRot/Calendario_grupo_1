@@ -51,19 +51,31 @@ x-calendar-day[data-selected]{
             date: { type: Object }
         };
     }
-    _onClick = (ev) => {
+    connectedCallback(){
+        super.connectedCallback();
+        this.addEventListener('click', this._onClickGuay);
+    }
+    disconnectedCallback(){
+        super.disconnectedCallback();
+        this.removeEventListener('click', this._onClickGuay);
+    }
+    _onClickCutron(ev){
+        const newSelectedDay = ev.target;
+        const selectedDay = this.renderRoot.querySelector('.x-month__item--selected')
+        selectedDay && selectedDay.classList.remove('x-month__item--selected');
+        newSelectedDay.classList.add('x-month__item--selected');
+    }
+     _onClickGuay = (ev) => {
         const newSelectedDay = this._findCalendarDay(ev.path);
         if (!newSelectedDay) {
             return;
         }
-        this._selectedDay && this._selectedDay.removeAttribute('data-selected');
-        this._selectedDay = newSelectedDay;
-        this._selectedDay.setAttribute('data-selected', '');
+        const selectedDay = this.renderRoot.querySelector('.x-month__item--selected')
+        selectedDay && selectedDay.classList.remove('x-month__item--selected')
+        newSelectedDay.classList.add('x-month__item--selected');
     }
     _findCalendarDay(path) {
-
-      
-        return path.find((el) => el.localName === 'x-calendar-day'); 
+        return path.find((el) => el.localName === 'x-calendar-day');
     }
     _getWeekDays() {
         const days = [];
@@ -76,18 +88,18 @@ x-calendar-day[data-selected]{
         return days;
     }
     _calculateClasses(day) {
-        let classes = "x-month__item ";
+        let classes = "x-month__item";
         if (dataService.isToday(day)) {
-            classes += ' x-month__item--today';
+            classes += ' x-month__item--today x-month__item--selected';
         }
-        if (dataService.isOutside(day)) {
+        if (dataService.isOutside(day, this.date)) {
             classes += ' x-month__item--outside';
         }
-       return classes;
+        return classes;
     }
     _renderDay(day) {
         const classes = this._calculateClasses(day)
-        return html`<x-calendar-day @click=${this._onClick} class="${classes}" .date=${day}></x-calendar-day>`
+        return html`<x-calendar-day class="${classes}" .date=${day}></x-calendar-day>`
     }
     _renderDays() {
         return this.days.map((day) => this._renderDay(day));
