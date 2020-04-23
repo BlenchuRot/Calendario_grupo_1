@@ -44,9 +44,7 @@ x-calendar-day[data-selected]{
 }
         `;
     }
-    get date() {
-        return new Date(this.dataset.date);
-    }
+   
     get days() {
         return MonthHelper.getDays(this.date, config.startDay, DAYS_PER_WEEK * config.monthRows);
     }
@@ -67,6 +65,7 @@ x-calendar-day[data-selected]{
         this._selectedDay.setAttribute('data-selected', '');
     }
     _findCalendarDay(path) {
+      
         return path.find((el) => el.localName === 'x-calendar-day');
     }
     _getWeekDays() {
@@ -80,7 +79,7 @@ x-calendar-day[data-selected]{
         return days;
     }
     _renderDay(day) {
-
+       
         return html`<x-calendar-day @click=${this._onClick} class="x-month__item" .date=${day}></x-calendar-day>`
     }
     _renderDays() {
