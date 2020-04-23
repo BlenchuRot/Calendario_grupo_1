@@ -7,6 +7,8 @@ import { WEEKDAY_LETTERS } from './date-constants.js';
 import './calendar-day.js';
 
 const DAYS_PER_WEEK = 7;
+function compararMeses (fecha1, fecha2){
+    return fecha1.getMonth() === fecha2.getMonth();}
 
 class XCalendarMonth extends LitElement {
     static get styles() {
@@ -82,22 +84,22 @@ x-calendar-day {
         }
         return days;
     }
-    _calculateClasses(day) {
+    _calculateClasses(date) {
         let classes = "x-month__item";
-        if (dataService.isToday(day)) {
+        if (dateService.isToday(date)) {
             classes += ' x-month__item--today x-month__item--selected';
         }
-        if (dataService.isOutside(day, this.date)) {
+        if (!compararMeses (date, this.date)) {
             classes += ' x-month__item--outside';
         }
         return classes;
     }
-    _renderDay(day) {
-        const classes = this._calculateClasses(day)
-        return html`<x-calendar-day class="${classes}" .date=${day}></x-calendar-day>`
+    _renderDay(date) {
+        const classes = this._calculateClasses(date)
+        return html`<x-calendar-day class="${classes}" .date=${date}></x-calendar-day>`
     }
     _renderDays() {
-        return this.days.map((day) => this._renderDay(day));
+        return this.days.map((date) => this._renderDay(date));
     }
     _renderWeekdays() {
         return this._getWeekDays().map((wd) => html`<div class="x-month__item">${wd}</div>`);
@@ -105,7 +107,7 @@ x-calendar-day {
     render() {
         return html`
            ${this._renderWeekdays()}
-           ${this._renderDays()}
+           ${this.date ? this._renderDays():html`error`}
         `;
     }
 }
