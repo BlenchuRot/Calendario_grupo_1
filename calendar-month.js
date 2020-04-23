@@ -19,7 +19,7 @@ class XCalendarMonth extends LitElement {
     justify-items: stretch;
     font-size: var(--x-font-tiny);
 }
-.x-calendar-day {
+x-calendar-day {
     box-sizing: border-box;
     cursor: pointer;
 }
@@ -69,9 +69,21 @@ class XCalendarMonth extends LitElement {
         }
         return days;
     }
+    _calculateClasses(day) {
+        let classes = " ";
+        if (dataService.isToday(day)) {
+            classes += 'x-month__item--today';
+        }
+        if (dataService.isOutside(day)) {
+            classes += 'x-month__item--outside';
+        }
+        if (dataService.isSelected(day)) {
+            classes += 'x-month__item--selected';
+        }
+    }
     _renderDay(day) {
-
-        return html`<x-calendar-day @click=${this._onClick} class="x-month__item" .date=${day}></x-calendar-day>`
+        const classes = this._calculateClasses(day)
+        return html`<x-calendar-day @click=${this._onClick} class="${classes}" .date=${day}></x-calendar-day>`
     }
     _renderDays() {
         return this.days.map((day) => this._renderDay(day));
