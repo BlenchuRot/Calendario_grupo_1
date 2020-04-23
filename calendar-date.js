@@ -1,10 +1,10 @@
 
-import { LitElement, html } from 'https://cdn.pika.dev/lit-element';
+import { LitElement, html, css } from 'https://cdn.pika.dev/lit-element';
 import { dateService } from './date-service.js';
 import { DateFormatter } from './date-formatter.js';
 
 class XCalendarDate extends LitElement {
-    static get style() {
+    static get styles() {
         return css`
           .x-date {
     margin:0;

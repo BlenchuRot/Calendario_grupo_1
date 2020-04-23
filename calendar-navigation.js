@@ -3,11 +3,10 @@ import { LitElement, html, css } from 'https://cdn.pika.dev/lit-element';
 class XCalendarNavigation extends LitElement {
     static get styles() {
             return css`
-            .x-navigation__icon {
-    fill: var(--x-color-text-primary);
+.x-navigation__icon {
+    fill: var(--x-color-text--primary);
     cursor: pointer;
-}
-      `;      
+}`;      
     }
     
     _onNextClick = () => {
@@ -28,7 +27,7 @@ class XCalendarNavigation extends LitElement {
     render() {
         return html` 
       
-            <svg @click= ${this._onNextClick} class="x-navigation__icon" id="previous" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
+            <svg @click=${this._onNextClick} class="x-navigation__icon" id="previous" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
                <path d="M0 16.67l2.829 2.83 9.175-9.339 9.167 9.339 2.829-2.83-11.996-12.17z"/>
                 
            </svg>
@@ -36,7 +35,7 @@ class XCalendarNavigation extends LitElement {
                 <path d="M0 7.33l2.829-2.83 9.175 9.339 9.167-9.339 2.829 2.83-11.996 12.17z"/>
                  
             </svg>
-        `
+        `;
     }
 }
 

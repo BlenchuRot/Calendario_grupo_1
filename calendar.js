@@ -22,7 +22,44 @@ class XCalendar extends LitElement{
 .x-calendar__body {
     display: block;
     padding: var(--x-padding-small);
-}`;
+}
+.horizontal {
+    display: flex;
+}
+
+.vertical {
+    display: flex;
+    flex-direction: column;
+}
+
+.wrap {
+    flex-wrap: wrap;
+}
+
+.fill {
+    height: 100%;
+}
+
+.none {
+    flex: none;
+}
+
+.one {
+    flex: 1;
+}
+
+.two {
+    flex: 2;
+}
+
+.three {
+    flex: 3;
+}
+
+.twelve {
+    flex: 12;
+}
+`;
     }
     connectedCallback() {
         super.connectedCallback();

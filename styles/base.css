@@ -1,0 +1,26 @@
+@media (min-width: 400px) {
+    html {
+      font-size: calc(1rem + ((1vw - 4px) * 1.25));
+    }
+}
+@media (min-width: 720px) {
+    html {
+      font-size: calc(1.25rem + ((1vw - 7.2px) * 0.3175));
+    }
+}
+@media (min-width: 1980px) {
+    html {
+      font-size: 24px;
+    }
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+}

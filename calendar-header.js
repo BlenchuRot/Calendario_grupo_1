@@ -4,7 +4,17 @@ import './calendar-date.js';
 
 class XCalendarHeader extends LitElement  {
     static get styles() {
-        return css['/calendar-header.css'];
+        return css`
+ :host {
+    display: block;
+    padding: var(--x-padding-medium);
+}
+
+.x-header__date {
+    padding-top: var(--x-padding-tiny);
+    display: block;
+}
+        `;
     }
     render() {
         return html`

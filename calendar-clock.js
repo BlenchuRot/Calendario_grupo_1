@@ -8,8 +8,8 @@ class XCalendarClock extends LitElement {
         return css`
         .x-clock {
             margin: 0;
-            font-size: var(--x-font-small);
-        }`
+            font-size: var(--x-font--small);
+        }`;
     }
     static get properties() {
         return {

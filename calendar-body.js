@@ -4,14 +4,15 @@ import './calendar-summary.js';
 import './calendar-navigation.js';
 import './calendar-month.js';
  
-/* Body
-- Componente x - calendar - bod
- - Pinta el month el summary y el navigation
- - Almacena una propiedad con la fecha seleccionada que incialmente es la del dateService
- - Cuando el navigation notifique se ha de actualizar la fecha seleccionada
- - La fecha seleccionada a de propagarse al month y al summary
- - Cuando el dateService indique un cambio de dia tambien se ha de actualizar la fecha seleccionada*/
- class XCalendarBody extends LitElement{
+ class XCalendarBody extends LitElement {
+     static get styles(){
+         return css`
+ .x-body__top {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: var(--x-margin-small);
+}`;
+     }
      static get properties(){
            return{
                selectedDate: {type: Object}
@@ -45,7 +46,7 @@ import './calendar-month.js';
          <x-calendar-navigation @change=${this._onNavigation}></x-calendar-navigation>
          <x-calendar-month .date=${this.selectedDate}></x-calendar-month>
          
-        `
+        `;
     }
  }
-customElements.define('x-calendar-body', XCalendarBody);
+window.customElements.define('x-calendar-body', XCalendarBody);
