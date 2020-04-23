@@ -33,7 +33,7 @@ class DateService extends EventEmitter {
     }
     _updateDate() {
         const oldDate = new Date(this._date);
-        this._date.setSeconds(this._date.getSeconds() + config.refreshInterval);
+        this._date= new Date;
         if (oldDate.getMonth() !== this._date.getMonth()) {
             this.emit(this.MONTH_CHANGED, this._date);
         }

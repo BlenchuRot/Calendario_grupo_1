@@ -19,42 +19,33 @@ class XCalendarMonth extends LitElement {
     justify-items: stretch;
     font-size: var(--x-font-tiny);
 }
-
 x-calendar-day {
     box-sizing: border-box;
     cursor: pointer;
 }
-
-x-calendar-day[data-outside]{
+.x-month__item--outside{
     color: var(--x-color-primary--light);
 }
-
-x-calendar-day[data-today]{
+.x-month__item--today{
     background-color: var(--x-color-secondary);
 }
-
-x-calendar-day[data-selected]{
+.x-month__item--selected{
     border: 1px solid var(--x-color-secondary);
 }
-
 .x-month__item {
     display: flex;
     justify-content: center;
     align-items: center;
-}
-        `;
+}`;
     }
-   
     get days() {
         return MonthHelper.getDays(this.date, config.startDay, DAYS_PER_WEEK * config.monthRows);
     }
-      
     static get properties() {
         return {
-            date: {type: Object}
+            date: { type: Object }
         };
-     }
-
+    }
     _onClick = (ev) => {
         const newSelectedDay = this._findCalendarDay(ev.path);
         if (!newSelectedDay) {
@@ -65,7 +56,7 @@ x-calendar-day[data-selected]{
         this._selectedDay.setAttribute('data-selected', '');
     }
     _findCalendarDay(path) {
-      
+
         return path.find((el) => el.localName === 'x-calendar-day');
     }
     _getWeekDays() {
@@ -79,7 +70,7 @@ x-calendar-day[data-selected]{
         return days;
     }
     _renderDay(day) {
-       
+
         return html`<x-calendar-day @click=${this._onClick} class="x-month__item" .date=${day}></x-calendar-day>`
     }
     _renderDays() {
@@ -89,11 +80,10 @@ x-calendar-day[data-selected]{
         return this._getWeekDays().map((wd) => html`<div class="x-month__item">${wd}</div>`);
     }
     render() {
-        return html `
+        return html`
            ${this._renderWeekdays()}
            ${this._renderDays()}
         `;
-
     }
 }
 
