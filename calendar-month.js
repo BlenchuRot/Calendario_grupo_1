@@ -56,8 +56,8 @@ x-calendar-day {
     }
     _onClickCutron(ev){
         const newSelectedDay = ev.target;
-        const selectedDay = this.renderRoot.querySelector('.x-month__item--selected)
-        selectedDay && selectedDay.classList.remove('x-month__item--selected');
+        const selectedDay = this.renderRoot.querySelector('.x-month__item--selected')
+        selectedDay && selectedDay.classList.remove('x-month__item--selected')
         newSelectedDay.classList.add('x-month__item--selected');
     }
      _onClickGuay = (ev) => {
@@ -65,8 +65,8 @@ x-calendar-day {
         if (!newSelectedDay) {
             return;
         }
-        const selectedDay = this.renderRoot.querySelector('.x-month__item--selected)
-        selectedDay && selectedDay.classList.remove('x-month__item--selected');
+        const selectedDay = this.renderRoot.querySelector('.x-month__item--selected')
+        selectedDay && selectedDay.classList.remove('x-month__item--selected')
         newSelectedDay.classList.add('x-month__item--selected');
     }
     _findCalendarDay(path) {
