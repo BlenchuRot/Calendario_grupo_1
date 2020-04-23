@@ -70,16 +70,14 @@ x-calendar-day {
         return days;
     }
     _calculateClasses(day) {
-        let classes = " ";
+        let classes = "x-month__item";
         if (dataService.isToday(day)) {
-            classes += 'x-month__item--today';
+            classes += ' x-month__item--today';
         }
         if (dataService.isOutside(day)) {
-            classes += 'x-month__item--outside';
+            classes += ' x-month__item--outside';
         }
-        if (dataService.isSelected(day)) {
-            classes += 'x-month__item--selected';
-        }
+        return classes;
     }
     _renderDay(day) {
         const classes = this._calculateClasses(day)
