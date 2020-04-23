@@ -13,7 +13,7 @@ function compararMeses (fecha1, fecha2){
 class XCalendarMonth extends LitElement {
     static get styles() {
         return css`
-        :host {
+  :host {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     grid-template-rows: repeat(7, 1fr);
@@ -24,16 +24,21 @@ class XCalendarMonth extends LitElement {
 x-calendar-day {
     box-sizing: border-box;
     cursor: pointer;
+    
 }
-.x-month__item--outside{
+
+x-calendar-day[data-outside]{
     color: var(--x-color-primary--light);
 }
-.x-month__item--today{
+
+x-calendar-day[data-today]{
     background-color: var(--x-color-secondary);
 }
-.x-month__item--selected{
+
+x-calendar-day[data-selected]{
     border: 1px solid var(--x-color-secondary);
 }
+
 .x-month__item {
     display: flex;
     justify-content: center;
@@ -59,7 +64,11 @@ x-calendar-day {
     _onClickCutron(ev){
         const newSelectedDay = ev.target;
         const selectedDay = this.renderRoot.querySelector('.x-month__item--selected')
+<<<<<<< HEAD
+        selectedDay && selectedDay.classList.remove('x-month__item--selected');
+=======
         selectedDay && selectedDay.classList.remove('x-month__item--selected')
+>>>>>>> a514f01187d2b7b354aa00f8a0052bc9cb4205cd
         newSelectedDay.classList.add('x-month__item--selected');
     }
      _onClickGuay = (ev) => {
