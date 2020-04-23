@@ -19,7 +19,7 @@ class XCalendarMonth extends LitElement {
     justify-items: stretch;
     font-size: var(--x-font-tiny);
 }
-x-calendar-day {
+.x-calendar-day {
     box-sizing: border-box;
     cursor: pointer;
 }
