@@ -25,15 +25,15 @@ x-calendar-day {
     
 }
 
-x-calendar-day[data-outside]{
+.x-month__item--outside{
     color: var(--x-color-primary--light);
 }
 
-x-calendar-day[data-today]{
+.x-month__item--today{
     background-color: var(--x-color-secondary);
 }
 
-x-calendar-day[data-selected]{
+.x-month__item--selected{
     border: 1px solid var(--x-color-secondary);
 }
 
@@ -62,11 +62,7 @@ x-calendar-day[data-selected]{
     _onClickCutron(ev){
         const newSelectedDay = ev.target;
         const selectedDay = this.renderRoot.querySelector('.x-month__item--selected')
-<<<<<<< HEAD
-        selectedDay && selectedDay.classList.remove('x-month__item--selected');
-=======
         selectedDay && selectedDay.classList.remove('x-month__item--selected')
->>>>>>> a514f01187d2b7b354aa00f8a0052bc9cb4205cd
         newSelectedDay.classList.add('x-month__item--selected');
     }
      _onClickGuay = (ev) => {
@@ -96,7 +92,7 @@ x-calendar-day[data-selected]{
         if (dataService.isToday(day)) {
             classes += ' x-month__item--today x-month__item--selected';
         }
-        if (dataService.isOutside(day, this.date)) {
+        if (dateService.isOutside(day, this.date)) {
             classes += ' x-month__item--outside';
         }
         return classes;

@@ -31,6 +31,9 @@ class DateService extends EventEmitter {
     isToday(date){
         return date.toDateString() === this._date.toDateString();
     }
+    isOutside(date) {
+        return date.toDateString() === this._date.toDateString();
+    }
     _updateDate() {
         const oldDate = new Date(this._date);
         this._date= new Date;
