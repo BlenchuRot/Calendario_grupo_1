@@ -64,11 +64,7 @@ x-calendar-day[data-selected]{
     _onClickCutron(ev){
         const newSelectedDay = ev.target;
         const selectedDay = this.renderRoot.querySelector('.x-month__item--selected')
-<<<<<<< HEAD
         selectedDay && selectedDay.classList.remove('x-month__item--selected');
-=======
-        selectedDay && selectedDay.classList.remove('x-month__item--selected')
->>>>>>> a514f01187d2b7b354aa00f8a0052bc9cb4205cd
         newSelectedDay.classList.add('x-month__item--selected');
     }
      _onClickGuay = (ev) => {
