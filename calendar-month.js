@@ -66,7 +66,7 @@ x-calendar-day[data-selected]{
     }
     _findCalendarDay(path) {
       
-        return path.find((el) => el.localName === 'x-calendar-day');
+        return path.find((el) => el.localName === 'x-calendar-day'); 
     }
     _getWeekDays() {
         const days = [];
@@ -79,8 +79,14 @@ x-calendar-day[data-selected]{
         return days;
     }
     _renderDay(day) {
-       
-        return html`<x-calendar-day @click=${this._onClick} class="x-month__item" .date=${day}></x-calendar-day>`
+        const isday = [];
+        if (dateService.isToday(day)) {
+            isday.push('data-today');
+        }
+        if (day.getMonth() !== this.date.getMonth()) {
+            isday.push('data-outside');
+        }
+        return html`<x-calendar-day @click=${this._onClick}  class="x-month__item" .date=${day}></x-calendar-day>`
     }
     _renderDays() {
         return this.days.map((day) => this._renderDay(day));
