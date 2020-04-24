@@ -42,8 +42,10 @@ import './calendar-month.js';
      }
     render(){
         return html`
+         <div class="x-body__top">
          <x-calendar-summary .date=${this.selectedDate}></x-calendar-summary>
-         <x-calendar-navigation @change=${this._onNavigation}></x-calendar-navigation>
+         <x-calendar-navigation  @change=${this._onNavigation}></x-calendar-navigation>
+          </div>
          <x-calendar-month .date=${this.selectedDate}></x-calendar-month>
          
         `;
