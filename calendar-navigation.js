@@ -1,12 +1,11 @@
 import { LitElement, html, css } from 'https://cdn.pika.dev/lit-element';
-import { layout } from './layout.js'
+
 class XCalendarNavigation extends LitElement {
     static get styles() {
         return css`
 .x-navigation__icon {
-    display:flex;
-    justify-content: flex-end;
-    fill: var(--x-color-text--primary);
+    
+    fill: var(--x-color-text-primary);
     cursor: pointer;
 }`;      
     }
