@@ -13,9 +13,13 @@ class MonthHelper {
     static _startDateInLastMonth(date, startDay){
         const lastMonthDate = this._getFirstOfMonth(date);
         const daysToFillWeek = lastMonthDate.getDay();
-        lastMonthDate.setDate(lastMonthDate.getDate() - daysToFillWeek + startDay);
+    
+        if(daysToFillWeek){
+            lastMonthDate.setDate(lastMonthDate.getDate() - daysToFillWeek + startDay);
+        }
         return lastMonthDate;
-    }   
+    }
+   
     static _getFirstOfMonth(date) {
         const newDate = new Date(date);
         newDate.setDate(1);
