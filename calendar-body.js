@@ -9,7 +9,7 @@ import './calendar-month.js';
          return css`
  .x-body__top {
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-around;*/
     margin-bottom: var(--x-margin-small);
 }`;
      }
@@ -36,14 +36,16 @@ import './calendar-month.js';
      }
      _onNavigation(ev){
         const change = ev.detail;
-         this.selectedDate = new Date(this.selectedDate);
+        this.selectedDate = new Date(this.selectedDate);
         this.selectedDate.setMonth(this.selectedDate.getMonth() + change);
         
      }
     render(){
         return html`
+        <div class= x-body__top >
          <x-calendar-summary .date=${this.selectedDate}></x-calendar-summary>
          <x-calendar-navigation @change=${this._onNavigation}></x-calendar-navigation>
+         </div>
          <x-calendar-month .date=${this.selectedDate}></x-calendar-month>
          
         `;

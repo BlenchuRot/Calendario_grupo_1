@@ -6,6 +6,8 @@ class XCalendarSummary extends LitElement {
     static get styles(){
         return css`
         .x-calendar-summary {
+            display: flex;
+            justify-content: flex-start;
             font-size: var(--x-font-tiny);
         }`
     }

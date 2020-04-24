@@ -6,6 +6,5 @@ export const layout = css`
     }
 `;
 
-// foo.js
 
 

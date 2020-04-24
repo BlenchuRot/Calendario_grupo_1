@@ -9,7 +9,6 @@ class XCalendar extends LitElement{
         return [
             layout,
             css`
-                 {
  :host {
     display: block;
     background-color: var(--x-color-primary);
@@ -26,13 +25,10 @@ class XCalendar extends LitElement{
     display: block;
     padding: var(--x-padding-small);
 }
-`
-              
-            
-        ]; 
-    }
+`      
+]; 
+}
  
-
 connectedCallback() {
         super.connectedCallback();
         dateService.start();
@@ -46,8 +42,7 @@ connectedCallback() {
         return html`
             <x-calendar-header class="x-calendar__header"></x-calendar-header>
             <x-calendar-body class="x-calendar__body"></x-calendar-body>
-        `; 
-        
+        `;        
     }
 }
 
