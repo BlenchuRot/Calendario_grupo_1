@@ -9,7 +9,7 @@ import './calendar-month.js';
          return css`
  .x-body__top {
     display: flex;
-    /* justify-content: space-around;*/
+    justify-content: space-between;
     margin-bottom: var(--x-margin-small);
 }`;
      }
