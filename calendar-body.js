@@ -3,7 +3,7 @@ import { dateService } from './date-service.js';
 import './calendar-summary.js';
 import './calendar-navigation.js';
 import './calendar-month.js';
- 
+
  class XCalendarBody extends LitElement {
      static get styles(){
          return css`

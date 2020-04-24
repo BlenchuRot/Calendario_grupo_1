@@ -41,4 +41,4 @@ class XCalendarClock extends LitElement {
     }
 }
  
-window.customElements.define('x-clock', XCalendarClock);
+window.customElements.define('x-calendar-clock', XCalendarClock);

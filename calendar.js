@@ -3,11 +3,14 @@ import { dateService } from './date-service.js';
 import './calendar-header.js';
 import './calendar-body.js';
 
-
+import { layout } from './layout.js'
 class XCalendar extends LitElement{
-    static get styles(){
-        return css`
-        :host {
+    static get styles() {
+        return [
+            layout,
+            css`
+                 {
+ :host {
     display: block;
     background-color: var(--x-color-primary);
     color: var(--x-color-text-primary);
@@ -23,49 +26,18 @@ class XCalendar extends LitElement{
     display: block;
     padding: var(--x-padding-small);
 }
-.horizontal {
-    display: flex;
-}
-
-.vertical {
-    display: flex;
-    flex-direction: column;
-}
-
-.wrap {
-    flex-wrap: wrap;
-}
-
-.fill {
-    height: 100%;
-}
-
-.none {
-    flex: none;
-}
-
-.one {
-    flex: 1;
-}
-
-.two {
-    flex: 2;
-}
-
-.three {
-    flex: 3;
-}
-
-.twelve {
-    flex: 12;
-}
-`;
+`
+              
+            
+        ]; 
     }
-    connectedCallback() {
+ 
+
+connectedCallback() {
         super.connectedCallback();
         dateService.start();
-    }
-    disconnectedCallback() {
+}
+ disconnectedCallback() {
         super.disconnectedCallback();
         dateService.stop();
     }
@@ -78,4 +50,5 @@ class XCalendar extends LitElement{
         
     }
 }
+
 customElements.define('x-calendar', XCalendar);
